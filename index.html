@@ -6,13 +6,16 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div id="main-bg"></div>
 <div id="background"></div>
 <canvas id="visual-canvas"></canvas>
 <audio id="music" class="hidden" controls></audio>
 <input id="input-file" type="file" class="hidden" accept="audio/mp3" multiple>
-<h1 id="title">请将音乐文件拖拽到此处</h1>
-<ul id="file-list">
-</ul>
+<h1 id="title">请将音乐文件拖曳到此处</h1>
+<div id="file-list-wrapper">
+    <div class="header">歌曲列表</div>
+    <ul id="file-list"></ul>
+</div>
 <div id="help" class="hidden">
     <img data-src="img/help.png">
 </div>

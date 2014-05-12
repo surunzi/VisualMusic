@@ -11,37 +11,40 @@
 
 html {
     overflow: hidden;
-    background-image: url(../img/bg.png);
 }
 
 /* 滚动条样式 */
 ::-webkit-scrollbar-thumb{
-   background-color:#08c;  
+   background-color:#30ABD5;  
    height:50px;
-   -webkit-border-radius:4px;
 }  
 
 ::-webkit-scrollbar-thumb:hover{
-   background-color:#0af;  
-   height:50px;
-   -webkit-border-radius:4px;  
+   background-color:#0af;
 }  
  
 ::-webkit-scrollbar {
-   width:5px;  
+   width:15px;
    height:8px;
-}  
- 
-::-webkit-scrollbar-track-piece{
-    -webkit-border-radius:0;
-    border:none;
 }
 
-::-webkit-scrollbar-thumb:active{
-    height:50px;
-    background-color:#07c;
-    -webkit-border-radius:4px;
-}#background {
+audio::-webkit-media-controls-panel {
+    -webkit-appearance:none;
+    background-color: #fff;
+    border-radius: 0;
+}
+
+audio::-webkit-media-controls-current-time-display {
+    color: #30ABD5;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    width: 5px;
+    border-radius: 5px;
+    background-color: #000;
+}
+
+#background{
     width: 100%;
     height: 100%;
     position: fixed;
@@ -49,26 +52,38 @@ html {
     top: 0;
 }
 
-#file-list {
+#file-list-wrapper {
     position: fixed;
     left: -200px;
     top: 0;
     height: 100%;
+    opacity: .9;
+    -webkit-transition: left 0.3s;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+#file-list-wrapper .header {
+    padding: 15px;
+    font-size: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+#file-list {
     width: 200px;
-    overflow: hidden;
-    background-color: #47a3da;
     overflow-y: auto;
     overflow-x: hidden;
     display: block;
     list-style: none;
     opacity: 0.8;
-    -webkit-transition: left 0.3s;
+    max-height: calc(100% - 50px);
 }
 
 #file-list li {
-    border-bottom: 1px solid #258ecd;
+    border-bottom: 1px solid #f0f0f0;
     padding: 15px;
-    color: #fff;
+    color: #000;
+    font-size: 15px;
     width: 100%;
     cursor: pointer;
     word-break: break-all;
@@ -77,11 +92,12 @@ html {
 }
 
 #file-list li:hover {
-    background-color: #258ecd;
+    background-color: #f0f0f0;
 }
 
 #file-list .playing {
-    background-color: #f2807e;
+    color: #fff;
+    background-color: #30ABD5 !important;
 }
 
 #fullscreen, #play-mode{
@@ -89,13 +105,13 @@ html {
     width: 50px;
     height: 50px;
     cursor: pointer;
-    opacity: 0.1;
+    opacity: 0.5;
     -webkit-transition: opacity 0.3s;
             transition: opacity 0.3s;
 }
 
 #fullscreen:hover, #play-mode:hover{
-    opacity: 0.8;
+    opacity: 1;
 }
 
 #fullscreen {
@@ -108,7 +124,8 @@ html {
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: #f2807e;
+    background-color: #30ABD5;
+    z-index: 10;
 }
 
 #help img {
@@ -118,32 +135,37 @@ html {
 
 #help-wrapper {
     position: fixed;
-    bottom: 0px;
-    width: 100%;
-    padding-bottom: 50px;
+    top: calc(50% + 50px);
+    left: 50%;
 }
 
 #help-btn {
+    position: absolute;
+    left: -50px;
     margin: 0 auto;
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
     background-color: #47a3da;
     text-align: center;
     border-radius: 50%;
     color: #fff;
     cursor: pointer;
-    font-size: 30px;
-    padding-top: 55px;
-    -moz-box-sizing: border-box;
-         box-sizing: border-box;
-    -webkit-transition: background-color 0.3s;
-       -moz-transition: background-color 0.3s;
-        -ms-transition: background-color 0.3s;
-            transition: background-color 0.3s;
+    font-size: 20px;
+    -webkit-animation: helpBtnAnimation 1s linear infinite;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
 }
 
-#help-btn:hover {
-    background-color: #f2807e;
+#main-bg {
+    position: fixed;
+    width: 140%;
+    height: 140%;
+    left: -20%;
+    top: -20%;
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+    -webkit-filter: blur(8px);
 }
 
 #music {
@@ -151,12 +173,12 @@ html {
     width: 100%;
     left: 0;
     bottom: 0;
-    opacity: 0.1;
+    opacity: 0;
     -webkit-transition: opacity 0.3s;
 }
 
 #music:hover {
-    opacity: 0.8;
+    opacity: 1;
 }
 
 #play-mode {
@@ -180,6 +202,9 @@ html {
     top: calc(50% - 50px);
     color: #fff;
     height: 50px;
+    text-shadow: 0 0 10px #000;
+    font-size: 40px;
+    -webkit-text-stroke: 1px #fff;
     overflow: hidden;
     cursor: pointer;
 }
@@ -218,4 +243,21 @@ html {
 
 .bg4 {
     background-color: #000;
+}
+
+.bg5 {
+    background-color: #fff;
+}
+
+@-webkit-keyframes helpBtnAnimation {
+    0% {
+        -webkit-transform: scale(1);
+        background-color: #f2807e;
+    }
+    50% {
+        -webkit-transform: scale(1.05);
+    }
+    100% {
+        -webkit-transform: scale(1);
+    }
 }

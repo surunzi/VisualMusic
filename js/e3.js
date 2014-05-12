@@ -16,6 +16,7 @@ var canvas = util.getById('visual-canvas'),
     
 // 绘制
 function draw() {
+    ctx.save();
     var total = 0,
         lastAvarage = avarage;
     data = analyser.getData();
@@ -86,6 +87,7 @@ function draw() {
     ctx.arc(x, y, r, 0, Math.PI*2, true);
     ctx.closePath();
     ctx.fill();
+    ctx.restore();
 }
 
 function init() {

@@ -24,6 +24,7 @@ var canvas = util.getById('visual-canvas'),
     
 // 绘制
 function draw() {
+    ctx.save();
     data = analyser.getData();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (i = 0, len = data.length; i < len; i = i + 5) {
@@ -58,6 +59,7 @@ function draw() {
         ctx.closePath();
         ctx.fill();
     }
+    ctx.restore();
 }
 
 function init() {

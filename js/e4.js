@@ -1,4 +1,4 @@
-// 3号可视化效果
+// 4号可视化效果
 define(['analyser', 'util'], function (analyser, util) {
 
 var canvas = util.getById('visual-canvas'),
@@ -16,6 +16,7 @@ var canvas = util.getById('visual-canvas'),
     
 // 绘制
 function draw() {
+    ctx.save();
     var avarage = 0,
         total = 0,
         center = {
@@ -69,6 +70,7 @@ function draw() {
         addCount++;
     }
     lastAvarage = avarage;
+    ctx.restore();
 }
 
 function init() {

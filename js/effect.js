@@ -1,5 +1,5 @@
 // 效果
-define(['util', 'e0', 'e1', 'e2', 'e3', 'e4'], function (util) {
+define(['util', 'e0', 'e1', 'e2', 'e3', 'e4', 'e5'], function (util) {
 
 var canvas = util.getById('visual-canvas'),
     currentEffect = 0, // 当前可视化效果

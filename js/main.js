@@ -7,6 +7,7 @@ define(['util', 'effect'], function (util, effect) {
 
 var $body = $('body'),
     $fileList = $('#file-list'),
+    $fileListWrapper = $('#file-list-wrapper'),
     $helpWrapper = $('#help-wrapper'),
     $inputFile = $('#input-file'),
     $music = $('#music'),
@@ -197,7 +198,7 @@ function stopPlay() {
 
 $body.on('click', '#help-btn', function() {
     // 帮助渐隐渐入
-    $('#help').fadeToggle('fast');
+    $('#help').fadeIn('fast');
     var $img = $('#help img').first(),
         src = $img.attr('data-src');
     $img.attr('src', src);
@@ -231,10 +232,10 @@ $body.on('click', '#file-list li', function() {
     playSpecify(+songNum);
 }).on('contextmenu', function(e) {
     e.preventDefault();
-    if ($fileList.css('left') != '0px') {
-        $fileList.css({'left':'0'});
+    if ($fileListWrapper.css('left') != '0px') {
+        $fileListWrapper.css({'left':'0'});
     } else {
-        $fileList.css({'left':'-200px'});
+        $fileListWrapper.css({'left':'-200px'});
     }
 });
 
