@@ -242,11 +242,18 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .bg4 {
-    background-color: #000;
+    background-color: #815EAD;
+    background-image: -webkit-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, #000000 95%);
 }
 
 .bg5 {
     background-color: #fff;
+    background-image: -webkit-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, #000000 95%), url(../img/bg5.png);
+}
+
+.bg6 {
+    background-color: #fff;
+    background-image: url(../img/bg6.png);
 }
 
 @-webkit-keyframes helpBtnAnimation {

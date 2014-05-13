@@ -1,5 +1,6 @@
 // 效果
-define(['util', 'e0', 'e1', 'e2', 'e3', 'e4', 'e5'], function (util) {
+define(['util', 'e0', 'e1', 'e2', 'e3', 'e4', 'e5',
+    'e6'], function (util) {
 
 var canvas = util.getById('visual-canvas'),
     currentEffect = 0, // 当前可视化效果
@@ -9,7 +10,8 @@ var canvas = util.getById('visual-canvas'),
     interval = 30,
     isStopped = true, // 是否停止
     len = 0, 
-    requestAnimationFrame = window.webkitRequestAnimationFrame,
+    requestAnimationFrame = webkitRequestAnimationFrame,
+    cancelAnimationFrame = webkitCancelAnimationFrame,
     timer = null; // 触发器
 
 // 加载设置
@@ -37,7 +39,7 @@ function setCurrentEffect(num) {
 // 停止绘制
 function stopDraw() {
     if (timer) {
-        clearTimeout(timer);
+        cancelAnimationFrame(timer);
     }
     isStopped = true;
 }
@@ -49,12 +51,8 @@ for (i = 1, len = arguments.length; i < len; i++) {
 
 function draw() {
     if (isStopped != true) {
-        clearTimeout(timer);
-        timer = setTimeout(function() {
-            requestAnimationFrame(function() {
-                draw();
-            }, canvas);
-        }, interval);
+        cancelAnimationFrame(timer);
+        timer = requestAnimationFrame(draw);
     }
     if (effect.isInit() === false) {
         effect.init();
