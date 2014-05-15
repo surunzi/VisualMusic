@@ -2,6 +2,8 @@
 // 参考：http://codepen.io/pixelgrid/pen/ECrKd
 define(['analyser', 'util'], function (analyser, util) {
 
+var cover = 'e5.jpg';
+
 var canvas = util.getById('visual-canvas'),
     ctx = canvas.getContext('2d'),
     data,
@@ -94,7 +96,8 @@ function isInit() {
 return {
     draw: draw,
     init: init,
-    isInit: isInit
+    isInit: isInit,
+    cover: cover
 }
 
 });

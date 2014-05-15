@@ -8,10 +8,13 @@ define(['util', 'effect'], function (util, effect) {
 var $body = $('body'),
     $fileList = $('#file-list'),
     $fileListWrapper = $('#file-list-wrapper'),
+    $effectListWrapper = $('#effect-list-wrapper'),
     $helpWrapper = $('#help-wrapper'),
     $inputFile = $('#input-file'),
     $music = $('#music'),
     $playMode = $('#play-mode'),
+    $songName = $('#song-name'),
+    songNameTimer = null,
     $title = $('#title'),
     audio = util.getById('music'), // 音频
     currentFile = -1, // 当前播放文件序号
@@ -181,8 +184,36 @@ function setCurrentSong(num) {
         reader.readAsDataURL(fileList[currentFile]);
         $fileList.find('li').each(function() {
             if (+$(this).attr('num') == num) {
-                $('title').text($(this).text());
                 $(this).addClass('playing');
+
+                var songName = $(this).text();
+                $('title').text(songName);
+                $songName.text(songName);
+                // CSS3动画效果
+                if (songNameTimer !== null) {
+                    clearTimeout(songNameTimer);
+                    $songName.removeClass('showAndHide');
+                    $songName[0].offsetWidth = $songName[0].offsetWidth;
+                }
+                $songName.addClass('showAndHide');
+                songNameTimer = setTimeout(function () {
+                    songNameTimer = null;
+                    $songName.removeClass('showAndHide');
+                }, 15000);
+                // 3秒后显示歌曲名
+                /*setTimeout(function () {
+                    $songName.animate({
+                        'opacity': '1',
+                        'top': '0'
+                    }, 600);
+                    // 显示6秒后再次隐藏歌曲名
+                    setTimeout(function () {
+                        $songName.animate({
+                            'opacity': '0',
+                            'top': '-50'
+                        }, 600);
+                    }, 6000);
+                }, 3000);*/
             } else {
                 $(this).removeClass('playing');
             }
@@ -234,8 +265,10 @@ $body.on('click', '#file-list li', function() {
     e.preventDefault();
     if ($fileListWrapper.css('left') != '0px') {
         $fileListWrapper.css({'left':'0'});
+        $effectListWrapper.css({'right':'0'});
     } else {
         $fileListWrapper.css({'left':'-200px'});
+        $effectListWrapper.css({'right':'-200px'});
     }
 });
 

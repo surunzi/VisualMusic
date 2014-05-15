@@ -1,6 +1,8 @@
 // 1号可视化效果
 define(['analyser', 'util'], function (analyser, util) {
 
+var cover = 'e1.jpg';
+
 var canvas = util.getById('visual-canvas'),
     ctx = canvas.getContext('2d'),
     data,
@@ -76,7 +78,8 @@ function isInit() {
 return {
     draw: draw,
     init: init,
-    isInit: isInit
+    isInit: isInit,
+    cover: cover
 }
 
 });

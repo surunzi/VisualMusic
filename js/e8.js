@@ -1,6 +1,8 @@
 // 8号可视化效果
 define(['analyser', 'util'], function (analyser, util) {
 
+var cover = 'e8.jpg';
+
 var canvas = util.getById('visual-canvas'),
     ctx = canvas.getContext('2d'),
     data, w, h, i, x, gap, halfH, xc, yc,
@@ -83,7 +85,8 @@ function isInit() {
 return {
     draw: draw,
     init: init,
-    isInit: isInit
+    isInit: isInit,
+    cover: cover
 }
 
 });

@@ -3,6 +3,8 @@ define(['util', 'e0', 'e1', 'e2', 'e3', 'e4', 'e5',
     'e6', 'e7', 'e8'], function (util) {
 
 var canvas = util.getById('visual-canvas'),
+    $effectList = $('#effect-list'),
+    effectListHtml = '',
     currentEffect = 0, // 当前可视化效果
     effect = null,
     effects = [],
@@ -47,7 +49,13 @@ function stopDraw() {
 // 效果初始化
 for (i = 1, len = arguments.length; i < len; i++) {
     effects[i - 1] = arguments[i];
+    effectListHtml += '<li><img  num="' + (i - 1) + '" src="img/' + effects[i - 1].cover + '"></li>';
 }
+$effectList.html(effectListHtml);
+$effectList.on('click', 'li img', function () {
+    setCurrentEffect($(this).attr('num'));
+    util.setBg(currentEffect);
+});
 
 function draw() {
     if (isStopped != true) {

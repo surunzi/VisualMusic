@@ -1,7 +1,8 @@
 // 6号可视化效果
 define(['analyser', 'util'], function (analyser, util) {
 
-var canvas = util.getById('visual-canvas'),
+var cover = '',
+    canvas = util.getById('visual-canvas'),
     ctx = canvas.getContext('2d'),
     data,
     initOrNot = false;
@@ -29,7 +30,8 @@ function isInit() {
 return {
     draw: draw,
     init: init,
-    isInit: isInit
+    isInit: isInit,
+    cover: cover
 }
 
 });
