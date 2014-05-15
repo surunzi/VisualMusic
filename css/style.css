@@ -261,6 +261,10 @@ input[type="range"]::-webkit-slider-thumb {
     background-image: url(../img/bg0.png), -webkit-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, #000000 95%);
 }
 
+.bg8 {
+    background-image: -webkit-linear-gradient(#000, rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 80%, #000), url(../img/bg8.png);
+}
+
 @-webkit-keyframes helpBtnAnimation {
     0% {
         -webkit-transform: scale(1);
