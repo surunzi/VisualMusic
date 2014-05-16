@@ -1,1 +1,1 @@
-define(["analyser","util"],function(a,b){function c(){h.save(),f=a.getData(),h.clearRect(0,0,g.width,g.height),h.restore()}function d(){b.setBg(6),i=!0}function e(){return i}var f,g=b.getById("visual-canvas"),h=g.getContext("2d"),i=!1;return{draw:c,init:d,isInit:e}});
+define(["analyser","util"],function(a,b){function c(){i.save(),f=a.getData(),i.clearRect(0,0,h.width,h.height),i.restore()}function d(){b.setBg(6),j=!0}function e(){return j}var f,g="",h=b.getById("visual-canvas"),i=h.getContext("2d"),j=!1;return{draw:c,init:d,isInit:e,cover:g}});
