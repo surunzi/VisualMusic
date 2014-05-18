@@ -245,11 +245,13 @@ input[type="range"]::-webkit-slider-thumb {
     cursor: pointer;
 }
 
-#visual-canvas {
+#visual-canvas, #threed-visual-canvas{
     position: fixed;
     width: 100%;
     height: 100%;
-}.hidden {
+}
+
+.hidden {
     display: none;
 }
 

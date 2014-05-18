@@ -146,11 +146,21 @@ function isInit() {
     return initOrNot;
 }
 
+function enable() {
+
+}
+
+function disable() {
+
+}
+
 return {
     draw: draw,
     init: init,
     isInit: isInit,
-    cover: cover
+    cover: cover,
+    enable: enable,
+    disable: disable
 }
 
 });

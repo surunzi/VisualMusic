@@ -1,6 +1,6 @@
 // 效果
 define(['util', 'e0', 'e1', 'e2', 'e3', 'e4', 'e5',
-    'e6', 'e7', 'e8'], function (util) {
+    'e6', 'e7', 'e8', 'e9'], function (util) {
 
 var canvas = util.getById('visual-canvas'),
     $effectList = $('#effect-list'),
@@ -24,6 +24,9 @@ if (localStorage.effect) {
 // 开始绘制
 function beginDraw() {
     isStopped = false;
+    if (!effect) {
+        setCurrentEffect(currentEffect);
+    }
     draw();
 }
 
@@ -34,8 +37,12 @@ function saveSetting() {
 
 // 设置当前效果
 function setCurrentEffect(num) {
+    if (effect) {
+        effect.disable();
+    }
     currentEffect = num;
     effect = effects[num];
+    effect.enable();
 }
 
 // 停止绘制
@@ -89,7 +96,6 @@ function windowResize() {
     canvas.height = window.innerHeight;
 }
 
-setCurrentEffect(currentEffect);
 windowResize();
 $(window).on('resize', function() {
     windowResize();

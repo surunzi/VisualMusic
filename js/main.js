@@ -185,7 +185,6 @@ function setCurrentSong(num) {
         $fileList.find('li').each(function() {
             if (+$(this).attr('num') == num) {
                 $(this).addClass('playing');
-
                 var songName = $(this).text();
                 $('title').text(songName);
                 $songName.text(songName);
