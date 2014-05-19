@@ -1,7 +1,7 @@
 // 6号可视化效果
 define(['analyser', 'util', 'renderer'], function (analyser, util, renderer) {
 
-var cover = '',
+var cover = 'e10.jpg',
     camera, scene, particles, geometry, material,
     centerParticles, centerGeometry, centerMaterial,
     i, h, sprite,
@@ -9,6 +9,10 @@ var cover = '',
     initOrNot = false;
 
 function draw() {
+    if (!material) {
+        init();
+        return;
+    }
     data = analyser.getData();
     len = data.length / 4;
     total = 0;

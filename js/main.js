@@ -3,7 +3,7 @@ require.config({
 });
 
 // 主程序
-define(['util', 'effect'], function (util, effect) {
+require(['util', 'effect'], function (util, effect) {
 
 var $body = $('body'),
     $fileList = $('#file-list'),
