@@ -1,6 +1,6 @@
 // 效果
 define(['util', 'e0', 'e1', 'e2', 'e3', 'e4', 'e5',
-    'e6', 'e7', 'e8', 'e9'], function (util) {
+    'e6', 'e7', 'e8', 'e9', 'e10'], function (util) {
 
 var canvas = util.getById('visual-canvas'),
     $effectList = $('#effect-list'),
@@ -39,10 +39,12 @@ function saveSetting() {
 function setCurrentEffect(num) {
     if (effect) {
         effect.disable();
+        stopDraw();
     }
     currentEffect = num;
     effect = effects[num];
     effect.enable();
+    beginDraw();
 }
 
 // 停止绘制
@@ -71,8 +73,9 @@ function draw() {
     }
     if (effect.isInit() === false) {
         effect.init();
+    } else {
+        effect.draw();
     }
-    effect.draw();
 }
 
 function next() {

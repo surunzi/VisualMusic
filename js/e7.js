@@ -47,11 +47,11 @@ function isInit() {
 }
 
 function enable() {
-
+    util.showCanvas();
 }
 
 function disable() {
-
+    util.hideCanvas();
 }
 
 return {

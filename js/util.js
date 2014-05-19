@@ -2,6 +2,7 @@
 define(function () {
 
 var $background = $('#background'),
+    $canvas = $('#visual-canvas'),
     doc = document;
 
 // document.getElementById的缩写
@@ -48,12 +49,22 @@ function setBg(num) {
     $background.addClass('bg' + num);
 }
 
+function showCanvas() {
+    $canvas.removeClass('hidden');
+}
+
+function hideCanvas() {
+    $canvas.addClass('hidden');
+}
+
 return {
     getById: getById,
     getRidOfExtention: getRidOfExtention,
     intRandom: intRandom,
     fullscreenSwitch: fullscreenSwitch,
-    setBg: setBg
+    setBg: setBg,
+    showCanvas: showCanvas,
+    hideCanvas: hideCanvas
 }
 
 });

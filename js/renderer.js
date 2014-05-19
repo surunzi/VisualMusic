@@ -1,9 +1,11 @@
 // ThreeJs Renderer
 define(['util'], function (util) {
 
-var container = util.getById('threed-visual-canvas'),
-    $container = $('#threed-visual-canvas'),
-    renderer = new THREE.WebGLRenderer();
+var container = util.getById('threed-webgl-renderer'),
+    $container = $('#threed-webgl-renderer'),
+    renderer = new THREE.WebGLRenderer({
+        alpha: true
+    });
 
 renderer.setSize(window.innerWidth, window.innerHeight);
 container.appendChild(renderer.domElement);

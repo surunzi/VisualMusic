@@ -10,6 +10,10 @@ var cover = 'e9.jpg',
     initOrNot = false;
 
 function draw() {
+    if (!camera) {
+        init();
+        return;
+    }
     data = analyser.getData();
     len = data.length / 2;
     for (i = 0; i < 5; i++) {
@@ -33,7 +37,7 @@ function draw() {
     for ( i = 0, len = scene.children.length; i < len; i++ ) {
         var object = scene.children[i];
         if (object instanceof THREE.ParticleSystem) {
-            object.rotation.x = object.rotation.y = object.rotation.z = time * (i < 4 ? i + 1 : - (i + 1));
+            object.rotation.x = object.rotation.y = time * (i < 4 ? i + 1 : - (i + 1));
         }
     }
 
@@ -47,6 +51,8 @@ function draw() {
 }
 
 function init() {
+    util.setBg(9);
+
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 3000);
     camera.position.z = 1000;
 
@@ -62,8 +68,6 @@ function init() {
         vertex.z = Math.random() * 2000 - 1000;
         geometry.vertices.push(vertex);
     }
-
-    vertices = geometry.vertices;
 
     parameters = [
         [[1, 1, 0.5], 5],
