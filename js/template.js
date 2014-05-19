@@ -1,1 +1,0 @@
-define(["analyser","util"],function(a,b){function c(){i.save(),f=a.getData(),i.clearRect(0,0,h.width,h.height),i.restore()}function d(){b.setBg(6),j=!0}function e(){return j}var f,g="",h=b.getById("visual-canvas"),i=h.getContext("2d"),j=!1;return{draw:c,init:d,isInit:e,cover:g}});

@@ -1,1 +1,0 @@
-define(["util"],function(a){function b(){return f.getByteFrequencyData(h),h}function c(){return f.fftSize}var d=a.getById("music"),e=new webkitAudioContext,f=e.createAnalyser(),g=e.createMediaElementSource(d);f.fftSize=512;var h=new Uint8Array(f.frequencyBinCount);return g.connect(f),f.connect(e.destination),{getData:b,getFftSize:c}});
