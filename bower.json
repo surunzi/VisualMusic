@@ -1,0 +1,24 @@
+{
+  "name": "VisualMusic",
+  "version": "0.0.1",
+  "homepage": "https://github.com/surunzi/VisualMusic",
+  "authors": [
+    "surunzi <670785827@qq.com>"
+  ],
+  "description": "HTML5 music visualization",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "three.js": "*",
+    "requirejs": "~2.1.15"
+  }
+}
