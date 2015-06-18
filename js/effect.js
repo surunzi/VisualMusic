@@ -12,8 +12,8 @@ var canvas = util.getById('visual-canvas'),
     interval = 30,
     isStopped = true, // 是否停止
     len = 0, 
-    requestAnimationFrame = webkitRequestAnimationFrame,
-    cancelAnimationFrame = webkitCancelAnimationFrame,
+    requestAnimationFrame = window.requestAnimationFrame,
+    cancelAnimationFrame = window.cancelAnimationFrame,
     timer = null; // 触发器
 
 // 加载设置

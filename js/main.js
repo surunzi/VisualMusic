@@ -1,7 +1,3 @@
-require.config({
-
-});
-
 // 主程序
 require(['util', 'effect'], function (util, effect) {
 
@@ -26,12 +22,12 @@ var $body = $('body'),
     reader = new FileReader(), // 文件读取器
     timer = null; // 触发器
 
-reader.onload = function(e) {
-    var data = e.target.result;
+function loadFile(file) {
+    var data = URL.createObjectURL(file);
     $title.text('');
     $music.removeClass('hidden');
     $helpWrapper.addClass('hidden');
-    audio.src = e.target.result;
+    audio.src = data;
     audio.play();
     effect.beginDraw();
 };
@@ -181,7 +177,8 @@ function setCurrentSong(num) {
     if (currentFile != num) {
         stopPlay();
         currentFile = num;
-        reader.readAsDataURL(fileList[currentFile]);
+
+        loadFile(fileList[currentFile]);
         $fileList.find('li').each(function() {
             if (+$(this).attr('num') == num) {
                 $(this).addClass('playing');

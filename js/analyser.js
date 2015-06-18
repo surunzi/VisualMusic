@@ -2,7 +2,7 @@
 define(['util'], function (util) {
 
 var audio = util.getById('music'),
-    audioContext = new webkitAudioContext(),
+    audioContext = new AudioContext(),
     analyser = audioContext.createAnalyser(),
     audioSource = audioContext.createMediaElementSource(audio);
 
